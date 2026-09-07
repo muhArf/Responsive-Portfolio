@@ -95,3 +95,7 @@ details{font-size:16px;max-width:none;margin-top:26px;padding-top:21px}summary{f
 .viewer-close{position:absolute;right:16px;top:12px;padding:7px 14px;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:6px;cursor:pointer;font-size:16px}
 body:has(.image-viewer[open]){overflow:hidden}
 @media(max-width:760px){.project-gallery{grid-template-columns:1fr;gap:18px;margin-block:24px}.gallery-link img{height:300px}.gallery-featured img{height:auto}.project-gallery figcaption{padding:14px 16px}.project-gallery figcaption strong{font-size:16px}.project-gallery figcaption span{font-size:14px}}
+
+.nav{justify-content:flex-end}
+.nav-menu{justify-content:flex-end}
+.footer .header-name{font-size:20px;letter-spacing:-.6px;font-weight:700}
