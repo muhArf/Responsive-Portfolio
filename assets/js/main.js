@@ -1,57 +1,36 @@
-/*===== MENU SHOW =====*/ 
-const showMenu = (toggleId, navId) =>{
-    const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId)
-
-    if(toggle && nav){
-        toggle.addEventListener('click', ()=>{
-            nav.classList.toggle('show')
-        })
-    }
+document.documentElement.classList.add('js');
+const toggle = document.getElementById('nav-toggle');
+const menu = document.getElementById('nav-menu');
+function closeMenu() {
+  menu.classList.remove('is-open');
+  toggle.setAttribute('aria-expanded', 'false');
 }
-showMenu('nav-toggle','nav-menu')
-
-/*==================== REMOVE MENU MOBILE ====================*/
-const navLink = document.querySelectorAll('.nav__link')
-
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
-
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll('section[id]')
-
-const scrollActive = () =>{
-    const scrollDown = window.scrollY
-
-  sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.offsetTop - 58,
-              sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-        
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }                                                    
-    })
-}
-window.addEventListener('scroll', scrollActive)
-
-/*===== SCROLL REVEAL ANIMATION =====*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2000,
-    delay: 200,
-//     reset: true
+toggle.addEventListener('click', () => {
+  const open = menu.classList.toggle('is-open');
+  toggle.setAttribute('aria-expanded', String(open));
 });
-
-sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
-sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
-sr.reveal('.home__social-icon',{ interval: 200}); 
-sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+    closeMenu();
+    toggle.focus();
+  }
+});
+document.addEventListener('click', event => {
+  if (!event.target.closest('.nav')) closeMenu();
+});
+window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+const links = [...menu.querySelectorAll('a')];
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      links.forEach(link => {
+        if (link.hash === '#' + entry.target.id) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
+  document.querySelectorAll('main section[id]').forEach(section => observer.observe(section));
+}
+document.getElementById('year').textContent = new Date().getFullYear();
