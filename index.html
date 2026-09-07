@@ -44,6 +44,14 @@
           <div class="project-flow" aria-label="System workflow"><span>Camera feed</span><span aria-hidden="true">→</span><span>PPE detection</span><span aria-hidden="true">→</span><span>Telegram + buzzer</span></div>
           <div class="tags"><span>Python</span><span>YOLOv11m</span><span>ONNX</span><span>Streamlit</span><span>ESP32</span></div>
           <details><summary>Results &amp; technical details <span aria-hidden="true">+</span></summary>
+            <div class="project-demo">
+              <h4>System demonstration</h4>
+              <p>Watch the PPE detection system in action.</p>
+              <button class="button demo-play" type="button" aria-controls="thesis-video">Play demo <span aria-hidden="true">▶</span></button>
+              <video id="thesis-video" controls playsinline preload="none" hidden data-src="assets/videos/ppe-detection-demo.mp4" aria-label="PPE violation detection system demonstration"></video>
+              <p class="demo-status" role="status"></p>
+              <noscript><p><a href="assets/videos/ppe-detection-demo.mp4">Watch the demonstration video</a></p></noscript>
+            </div>
             <p class="case-detail">Developed as my undergraduate thesis. The model detects Helmet, Mask, Person, and Vest, and was trained using 4,410 images.</p>
             <div class="metrics"><div><strong>93.0%</strong><small>Test precision</small></div><div><strong>85.9%</strong><small>Test recall</small></div><div><strong>91.8%</strong><small>Test mAP@0.5</small></div></div>
             <p class="metric-note">Test-set mAP@0.5:0.95: 65.8%. These metrics describe model evaluation, not field deployment performance.</p>

@@ -60,3 +60,31 @@ if (viewer && typeof viewer.showModal === 'function') {
     imageTrigger?.focus();
   });
 }
+
+
+const demoButton = document.querySelector('.demo-play');
+const demoVideo = document.getElementById('thesis-video');
+if (demoButton && demoVideo) {
+  const demoStatus = document.querySelector('.demo-status');
+  demoButton.addEventListener('click', () => {
+    if (!demoVideo.getAttribute('src')) demoVideo.src = demoVideo.dataset.src;
+    demoVideo.hidden = false;
+    demoButton.hidden = true;
+    demoVideo.focus();
+    demoVideo.play().catch(() => {
+      demoStatus.textContent = 'Press play on the video controls to start the demonstration.';
+    });
+  });
+  demoVideo.addEventListener('playing', () => { demoStatus.textContent = ''; });
+  demoVideo.addEventListener('error', () => {
+    demoStatus.textContent = 'The video could not load. Please check your connection and try again.';
+    demoButton.hidden = false;
+    demoVideo.removeAttribute('src');
+  });
+  demoVideo.closest('details').addEventListener('toggle', event => {
+    if (!event.target.open) demoVideo.pause();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) demoVideo.pause();
+  });
+}

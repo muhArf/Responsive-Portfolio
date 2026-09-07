@@ -99,3 +99,13 @@ body:has(.image-viewer[open]){overflow:hidden}
 .nav{justify-content:flex-end}
 .nav-menu{justify-content:flex-end}
 .footer .header-name{font-size:20px;letter-spacing:-.6px;font-weight:700}
+
+.project-demo{margin-top:24px;padding:24px;border:1px solid var(--line);border-radius:12px;background:#f5f7f2}
+.project-demo h4{font-size:20px;margin:0 0 8px}
+.project-demo p{font-size:16px;color:var(--muted)}
+.demo-play{border:0;cursor:pointer;margin-top:18px}
+.project-demo video{display:block;width:100%;aspect-ratio:16/9;background:#111;border-radius:8px;margin-top:18px}
+.project-demo [hidden]{display:none}
+.demo-status:empty{display:none}
+.demo-status{margin-top:12px}
+@media(max-width:760px){.project-demo{padding:18px}.project-demo h4{font-size:18px}}
