@@ -34,3 +34,29 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('main section[id]').forEach(section => observer.observe(section));
 }
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const viewer = document.getElementById('image-viewer');
+const viewerImage = document.getElementById('viewer-image');
+let imageTrigger;
+if (viewer && typeof viewer.showModal === 'function') {
+  document.querySelectorAll('.gallery-link').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      imageTrigger = link;
+      viewerImage.src = link.href;
+      viewerImage.alt = link.querySelector('img').alt;
+      document.getElementById('viewer-caption').textContent = link.closest('figure').querySelector('figcaption strong').textContent;
+      viewer.showModal();
+    });
+  });
+  viewer.querySelector('.viewer-close').addEventListener('click', () => viewer.close());
+  viewer.addEventListener('click', event => {
+    const bounds = viewer.getBoundingClientRect();
+    if (event.target === viewer && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) viewer.close();
+  });
+  viewer.addEventListener('close', () => {
+    viewerImage.removeAttribute('src');
+    imageTrigger?.focus();
+  });
+}
