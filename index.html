@@ -14,7 +14,7 @@
     <nav class="container nav" aria-label="Main navigation">
       <button class="menu-toggle" id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">Menu <span aria-hidden="true">☰</span></button>
       <div class="nav-menu" id="nav-menu">
-        <a href="#project">Projects</a><a href="#about">About</a><a href="assets/files/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a><a class="nav-contact" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+        <a href="#project">Projects</a><a href="#about">About</a><a href="#education">Education</a><a href="assets/files/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a><a class="nav-contact" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
   </header>
@@ -24,9 +24,58 @@
         <h1>Muhamad Arif<span class="accent">IoT &amp; AI enthusiast.</span></h1>
         <p class="hero-description">Informatics graduate from Gunadarma University with hands-on experience in Internet of Things (IoT), Artificial Intelligence, and Computer Vision through internship and academic projects.</p>
         <div class="actions"><a class="button" href="#project">View projects <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="assets/files/cv.pdf" target="_blank" rel="noopener noreferrer">View CV <span aria-hidden="true">↗</span></a></div>
-        <div class="hero-meta"><span>◎ Bekasi, Indonesia</span><a href="https://www.linkedin.com/in/muhamad-arif-6646a814b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+        <div class="hero-meta">
+          <span class="hero-location">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10.2c0 5.1-8 11.3-8 11.3S4 15.3 4 10.2a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Bekasi, Indonesia
+          </span>
+          <a href="https://www.linkedin.com/in/muhamad-arif-6646a814b/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
       <div class="simple-portrait"><img src="assets/img/profile-shirt-gray.png" alt="Muhamad Arif" fetchpriority="high"></div>
+    </section>
+
+    <section class="section background-section" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">BACKGROUND</p><h2 id="education-title">Education &amp; experience</h2></div>
+          <p>Where I studied and applied my work in IoT and digital operations.</p>
+        </div>
+        <div class="education-grid">
+          <section class="education-column" aria-labelledby="education-entry-title">
+            <div class="education-label">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m2.5 9 9.5-5 9.5 5-9.5 5-9.5-5Z"/><path d="M6 11v5.2c3.7 2.9 8.3 2.9 12 0V11M21.5 9v6"/></svg>
+              <span>Education</span>
+            </div>
+            <article class="education-entry">
+              <p class="education-date"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><time datetime="2022-09">Sep 2022</time><span aria-hidden="true">—</span> Present</p>
+              <h3 id="education-entry-title">Gunadarma University</h3>
+              <p class="education-location"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10.2c0 5.1-8 11.3-8 11.3S4 15.3 4 10.2a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Depok, Indonesia</p>
+              <div class="education-detail">
+                <div><p class="education-degree">Bachelor of Informatics</p><p class="education-stage">Expected graduation 2026</p></div>
+                <p class="education-gpa"><span>GPA</span><strong>3.56</strong><span>/ 4.00</span></p>
+              </div>
+            </article>
+          </section>
+          <section class="education-column" aria-labelledby="experience-entry-title">
+            <div class="education-label">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>
+              <span>Experience</span>
+            </div>
+            <article class="experience-entry">
+              <p class="experience-date"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><time datetime="2025-10">Oct 2025</time><span aria-hidden="true">—</span><time datetime="2026-01">Jan 2026</time></p>
+              <h3 id="experience-entry-title">Digital &amp; Operational Support Intern</h3>
+              <p class="experience-company">Bukit Sunset Hill Villa &amp; Resto and Cafe Ngopi di Kebon Awi</p>
+              <p class="experience-location"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10.2c0 5.1-8 11.3-8 11.3S4 15.3 4 10.2a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Sukabumi, Indonesia</p>
+              <ul class="experience-contributions">
+                <li>Developed an IoT fingerprint attendance prototype connected to a central server.</li>
+                <li>Contributed to reservations, analytics dashboard, frontend, and MySQL integration.</li>
+                <li>Handled integration, field testing, deployment, documentation, and network troubleshooting.</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </div>
     </section>
 
     <section class="section container" id="project">

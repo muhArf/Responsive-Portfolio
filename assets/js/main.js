@@ -1,4 +1,20 @@
 document.documentElement.classList.add('js');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  const projectCards = document.querySelectorAll('#project .project-card');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  projectCards.forEach(card => {
+    card.classList.add('scroll-reveal');
+    if (card.getBoundingClientRect().top <= window.innerHeight * 0.85) {
+      card.classList.add('is-visible');
+    }
+    revealObserver.observe(card);
+  });
+}
 const toggle = document.getElementById('nav-toggle');
 const menu = document.getElementById('nav-menu');
 function closeMenu() {
