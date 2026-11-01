@@ -37,7 +37,7 @@ if (typingEffect && !reduceMotion) {
   }
 }
 if (!reduceMotion && 'IntersectionObserver' in window) {
-  const revealTargets = document.querySelectorAll('#education .section-heading, #education .education-entry, #education .experience-entry, #project .section-heading, #project .project-card, #about > div:first-child, #about .about-copy, #contact');
+  const revealTargets = document.querySelectorAll('#education .section-heading, #education .education-entry, #education .experience-timeline, #project .section-heading, #project .project-card, #about > div:first-child, #about .about-copy, #contact');
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       entry.target.classList.toggle('is-visible', entry.isIntersecting);
