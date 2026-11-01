@@ -109,3 +109,6 @@ body:has(.image-viewer[open]){overflow:hidden}
 .demo-status:empty{display:none}
 .demo-status{margin-top:12px}
 @media(max-width:760px){.project-demo{padding:18px}.project-demo h4{font-size:18px}}
+
+.button.button-secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+.button.button-secondary:hover{background:#edf2eb;color:var(--accent)}
