@@ -1,19 +1,78 @@
 document.documentElement.classList.add('js');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const typingEffect = document.querySelector('.typing-effect');
+if (typingEffect && !reduceMotion) {
+  const typingOutput = typingEffect.querySelector('.typing-output');
+  const fullText = typingOutput.textContent;
+  let typingTimer;
+  const clearTyping = () => {
+    window.clearTimeout(typingTimer);
+    typingEffect.classList.remove('has-typing-caret');
+    typingOutput.textContent = '';
+  };
+  const startTyping = () => {
+    window.clearTimeout(typingTimer);
+    typingOutput.textContent = '';
+    typingEffect.classList.add('has-typing-caret');
+    let typedCharacters = 0;
+    const typeNextCharacter = () => {
+      typedCharacters += 1;
+      typingOutput.textContent = fullText.slice(0, typedCharacters);
+      if (typedCharacters < fullText.length) {
+        typingTimer = window.setTimeout(typeNextCharacter, 58);
+      }
+    };
+    typingTimer = window.setTimeout(typeNextCharacter, 240);
+  };
+  if ('IntersectionObserver' in window) {
+    const typingObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) startTyping();
+        else clearTyping();
+      });
+    }, { rootMargin: '-12% 0px -12% 0px', threshold: 0.25 });
+    typingObserver.observe(typingEffect);
+  } else {
+    startTyping();
+  }
+}
 if (!reduceMotion && 'IntersectionObserver' in window) {
-  const projectCards = document.querySelectorAll('#project .project-card');
+  const revealTargets = document.querySelectorAll('#education .section-heading, #education .education-entry, #education .experience-entry, #project .section-heading, #project .project-card, #about > div:first-child, #about .about-copy, #contact');
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       entry.target.classList.toggle('is-visible', entry.isIntersecting);
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-  projectCards.forEach(card => {
-    card.classList.add('scroll-reveal');
-    if (card.getBoundingClientRect().top <= window.innerHeight * 0.85) {
-      card.classList.add('is-visible');
+  const revealOrder = new Map();
+  revealTargets.forEach(target => {
+    const sectionId = target.closest('section')?.id || 'page';
+    const delay = revealOrder.get(sectionId) || 0;
+    target.style.setProperty('--reveal-delay', `${delay}ms`);
+    revealOrder.set(sectionId, Math.min(delay + 60, 180));
+    target.classList.add('scroll-reveal');
+    if (target.getBoundingClientRect().top <= window.innerHeight * 0.85) {
+      target.classList.add('is-visible');
     }
-    revealObserver.observe(card);
+    revealObserver.observe(target);
   });
+}
+const scrollProgressFill = document.querySelector('.scroll-progress span');
+if (scrollProgressFill) {
+  let progressUpdateScheduled = false;
+  const updateScrollProgress = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
+    scrollProgressFill.style.transform = `scaleX(${progress})`;
+    progressUpdateScheduled = false;
+  };
+  const scheduleProgressUpdate = () => {
+    if (progressUpdateScheduled) return;
+    progressUpdateScheduled = true;
+    window.requestAnimationFrame(updateScrollProgress);
+  };
+  window.addEventListener('scroll', scheduleProgressUpdate, { passive: true });
+  window.addEventListener('resize', scheduleProgressUpdate, { passive: true });
+  updateScrollProgress();
 }
 const toggle = document.getElementById('nav-toggle');
 const menu = document.getElementById('nav-menu');
