@@ -504,12 +504,12 @@ body:has(.freelance-demo-dialog[open]),body:has(.project-demo-dialog[open]){over
 .internship-screens-grid figcaption strong{display:block;font-size:11px;font-weight:700;color:#344b3a}
 .internship-screens-grid figcaption span{display:block;margin-top:2px;font-size:10px;color:#58685c}
 .internship-gallery-section-title.device-title{margin-top:22px}
-.internship-device-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:680px}
+.internship-device-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}
 .internship-device-grid .gallery-link img{aspect-ratio:4 / 3;object-fit:contain;background:#edf1eb}
 .internship-gallery-note{margin-top:14px;font-size:11px;color:#58685c}
 body:has(.internship-gallery-dialog[open]){overflow:hidden}
 @media(hover:hover) and (pointer:fine){.internship-screens-grid .gallery-link img{transition:transform 180ms var(--ease-out)}.internship-screens-grid .gallery-link:hover img{transform:scale(1.025)}}
-@media(max-width:900px){.internship-screens-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.internship-screens-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.internship-device-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:680px}.internship-device-grid figure:last-child:nth-child(odd){grid-column:1/-1;max-width:calc((100% - 12px)/2);justify-self:center}}
 @media(max-width:760px){
   .project-card.project-internship .internship-gallery .gallery-featured .gallery-link img{height:auto;aspect-ratio:1280 / 592}
   .internship-more-button{gap:10px;padding:10px 11px}
@@ -519,5 +519,5 @@ body:has(.internship-gallery-dialog[open]){overflow:hidden}
   .internship-gallery-header>div>p:not(.visual-kicker){font-size:11px}
   .internship-gallery-close{padding:7px 8px;font-size:11px}
 }
-@media(max-width:420px){.internship-screens-grid{grid-template-columns:1fr}.internship-device-grid{grid-template-columns:1fr}}
+@media(max-width:420px){.internship-screens-grid{grid-template-columns:1fr}.internship-device-grid{grid-template-columns:1fr;max-width:none}.internship-device-grid figure:last-child:nth-child(odd){grid-column:auto;max-width:none}}
 @media(prefers-reduced-motion:reduce){.internship-more-button,.internship-screens-grid .gallery-link img{transition:none}}
