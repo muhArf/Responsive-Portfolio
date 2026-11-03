@@ -163,3 +163,25 @@ if (demoButton && demoVideo) {
     if (document.hidden) demoVideo.pause();
   });
 }
+
+const freelanceDemoOpen = document.getElementById('freelance-demo-open');
+const freelanceDemoDialog = document.getElementById('freelance-demo-dialog');
+const freelanceDemoVideo = freelanceDemoDialog?.querySelector('video');
+if (freelanceDemoOpen && freelanceDemoDialog && freelanceDemoVideo && typeof freelanceDemoDialog.showModal === 'function') {
+  freelanceDemoOpen.addEventListener('click', () => {
+    freelanceDemoDialog.showModal();
+    const playback = freelanceDemoVideo.play();
+    playback?.catch(() => {});
+  });
+  freelanceDemoDialog.querySelector('.freelance-demo-close').addEventListener('click', () => freelanceDemoDialog.close());
+  freelanceDemoDialog.addEventListener('click', event => {
+    if (event.target === freelanceDemoDialog) freelanceDemoDialog.close();
+  });
+  freelanceDemoDialog.addEventListener('close', () => {
+    freelanceDemoVideo.pause();
+    freelanceDemoOpen.focus();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) freelanceDemoVideo.pause();
+  });
+}
