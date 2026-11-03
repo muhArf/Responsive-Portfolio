@@ -99,20 +99,16 @@
           <h3>Real-Time PPE Violation Detection</h3>
           <p class="project-origin">Undergraduate thesis project for the Informatics program at Gunadarma University.</p>
           <p>From a camera feed to an actionable alert. This project connects PPE detection with a monitoring interface, Telegram notifications, and a physical buzzer.</p>
+          <button class="button project-demo-button" id="thesis-demo-open" type="button" aria-haspopup="dialog" aria-controls="thesis-demo-dialog">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg>
+            <span>Watch demo</span>
+          </button>
           <div class="case-overview">
             <div><h4>The challenge</h4><p>Detect PPE violations in a live camera stream and turn those detections into visible and audible alerts.</p></div>
             <div><h4>What I built</h4><p>A YOLOv11m detection pipeline with a Streamlit interface, RTSP camera input, and ESP32 alert integration.</p></div>
           </div>
           <div class="tags"><span>Python</span><span>YOLOv11m</span><span>ONNX</span><span>Streamlit</span><span>ESP32</span></div>
           <details><summary>Results &amp; technical details <span aria-hidden="true">+</span></summary>
-            <div class="project-demo">
-              <h4>System demonstration</h4>
-              <p>Watch the PPE detection system in action.</p>
-              <button class="button demo-play" type="button" aria-controls="thesis-video">Play demo <span aria-hidden="true">▶</span></button>
-              <video id="thesis-video" controls playsinline preload="none" hidden data-src="assets/videos/ppe-detection-demo.mp4" aria-label="PPE violation detection system demonstration"></video>
-              <p class="demo-status" role="status"></p>
-              <noscript><p><a href="assets/videos/ppe-detection-demo.mp4">Watch the demonstration video</a></p></noscript>
-            </div>
             <p class="case-detail">Developed as my undergraduate thesis. The model detects Helmet, Mask, Person, and Vest, and was trained using 4,410 images.</p>
             <p class="metric-note">Test-set mAP@0.5:0.95: 65.8%. These metrics describe model evaluation, not field deployment performance.</p>
             <ul><li>Used ONNX inference to process IP camera input over RTSP in Streamlit.</li><li>Connected Telegram Bot image notifications and an ESP32-controlled buzzer to detected PPE violations.</li></ul>
@@ -238,6 +234,16 @@
     </div>
     <video controls playsinline preload="none" width="464" height="832" aria-label="Demo of the fingerprint attendance and door access system">
       <source src="assets/videos/fingerprint-door-demo.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+  </dialog>
+  <dialog class="project-demo-dialog thesis-demo-dialog" id="thesis-demo-dialog" aria-labelledby="thesis-demo-title">
+    <div class="project-demo-header">
+      <div><p class="visual-kicker">UNDERGRADUATE THESIS · 1:23 DEMO</p><h2 id="thesis-demo-title">Real-Time PPE Violation Detection</h2></div>
+      <button class="project-demo-close" type="button" aria-label="Close video demo">Close <span aria-hidden="true">×</span></button>
+    </div>
+    <video controls playsinline preload="none" width="1920" height="1080" aria-label="Demo of the real-time PPE violation detection system">
+      <source src="assets/videos/ppe-detection-demo.mp4" type="video/mp4">
       Your browser does not support embedded video.
     </video>
   </dialog>

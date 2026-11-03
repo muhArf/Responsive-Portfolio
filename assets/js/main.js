@@ -149,51 +149,30 @@ if (internshipGallery && internshipGalleryButton && typeof internshipGallery.sho
 }
 
 
-const demoButton = document.querySelector('.demo-play');
-const demoVideo = document.getElementById('thesis-video');
-if (demoButton && demoVideo) {
-  const demoStatus = document.querySelector('.demo-status');
-  demoButton.addEventListener('click', () => {
-    if (!demoVideo.getAttribute('src')) demoVideo.src = demoVideo.dataset.src;
-    demoVideo.hidden = false;
-    demoButton.hidden = true;
-    demoVideo.focus();
-    demoVideo.play().catch(() => {
-      demoStatus.textContent = 'Press play on the video controls to start the demonstration.';
-    });
+function setupVideoDemo(openId, dialogId, closeSelector) {
+  const openButton = document.getElementById(openId);
+  const dialog = document.getElementById(dialogId);
+  const video = dialog?.querySelector('video');
+  const closeButton = dialog?.querySelector(closeSelector);
+  if (!openButton || !dialog || !video || !closeButton || typeof dialog.showModal !== 'function') return;
+
+  openButton.addEventListener('click', () => {
+    dialog.showModal();
+    const playback = video.play();
+    playback?.catch(() => {});
   });
-  demoVideo.addEventListener('playing', () => { demoStatus.textContent = ''; });
-  demoVideo.addEventListener('error', () => {
-    demoStatus.textContent = 'The video could not load. Please check your connection and try again.';
-    demoButton.hidden = false;
-    demoVideo.removeAttribute('src');
+  closeButton.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
   });
-  demoVideo.closest('details').addEventListener('toggle', event => {
-    if (!event.target.open) demoVideo.pause();
+  dialog.addEventListener('close', () => {
+    video.pause();
+    openButton.focus();
   });
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) demoVideo.pause();
+    if (document.hidden) video.pause();
   });
 }
 
-const freelanceDemoOpen = document.getElementById('freelance-demo-open');
-const freelanceDemoDialog = document.getElementById('freelance-demo-dialog');
-const freelanceDemoVideo = freelanceDemoDialog?.querySelector('video');
-if (freelanceDemoOpen && freelanceDemoDialog && freelanceDemoVideo && typeof freelanceDemoDialog.showModal === 'function') {
-  freelanceDemoOpen.addEventListener('click', () => {
-    freelanceDemoDialog.showModal();
-    const playback = freelanceDemoVideo.play();
-    playback?.catch(() => {});
-  });
-  freelanceDemoDialog.querySelector('.freelance-demo-close').addEventListener('click', () => freelanceDemoDialog.close());
-  freelanceDemoDialog.addEventListener('click', event => {
-    if (event.target === freelanceDemoDialog) freelanceDemoDialog.close();
-  });
-  freelanceDemoDialog.addEventListener('close', () => {
-    freelanceDemoVideo.pause();
-    freelanceDemoOpen.focus();
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) freelanceDemoVideo.pause();
-  });
-}
+setupVideoDemo('freelance-demo-open', 'freelance-demo-dialog', '.freelance-demo-close');
+setupVideoDemo('thesis-demo-open', 'thesis-demo-dialog', '.project-demo-close');

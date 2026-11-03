@@ -107,16 +107,6 @@ body:has(.image-viewer[open]){overflow:hidden}
 @keyframes typing-caret{50%{opacity:0}}
 .footer .header-name{font-size:20px;letter-spacing:-.6px;font-weight:700}
 
-.project-demo{margin-top:24px;padding:24px;border:1px solid var(--line);border-radius:12px;background:#f5f7f2}
-.project-demo h4{font-size:20px;margin:0 0 8px}
-.project-demo p{font-size:16px;color:var(--muted)}
-.demo-play{border:0;cursor:pointer;margin-top:18px}
-.project-demo video{display:block;width:100%;aspect-ratio:16/9;background:#111;border-radius:8px;margin-top:18px}
-.project-demo [hidden]{display:none}
-.demo-status:empty{display:none}
-.demo-status{margin-top:12px}
-@media(max-width:760px){.project-demo{padding:18px}.project-demo h4{font-size:18px}}
-
 .button.button-secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
 .button.button-secondary:hover{background:#edf2eb;color:var(--accent)}
 
@@ -436,8 +426,8 @@ details summary:focus-visible{color:var(--accent)}
 .project-card.project-internship .internship-gallery figcaption span{font-size:10px;line-height:1.5;margin-top:3px}
 .internship-flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 9px;padding-top:13px;border-top:1px solid #d6dfd4;font-size:10px;color:#47594b}
 .internship-flow b{font-weight:500;color:var(--accent)}
-.freelance-demo-button{display:inline-flex;align-items:center;gap:9px;margin-top:18px;border:0;cursor:pointer}
-.freelance-demo-button svg{width:15px;height:15px;flex:none}
+.freelance-demo-button,.project-demo-button{display:inline-flex;align-items:center;gap:9px;margin-top:18px;border:0;cursor:pointer}
+.freelance-demo-button svg,.project-demo-button svg{width:15px;height:15px;flex:none}
 .freelance-demo-dialog{width:min(680px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:24px;border:1px solid #445447;border-radius:12px;background:var(--surface);color:var(--text);box-shadow:0 20px 60px #0007}
 .freelance-demo-dialog::backdrop{background:rgba(5,10,7,.76)}
 .freelance-demo-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:16px}
@@ -445,8 +435,15 @@ details summary:focus-visible{color:var(--accent)}
 .freelance-demo-close{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #445447;border-radius:6px;background:transparent;color:var(--text);font:500 13px 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap}
 .freelance-demo-close:hover{border-color:var(--accent);color:var(--accent)}
 .freelance-demo-dialog video{display:block;width:auto;height:min(66dvh,560px);max-width:100%;aspect-ratio:464 / 832;object-fit:contain;background:#080a08;border-radius:8px;margin-inline:auto}
-body:has(.freelance-demo-dialog[open]){overflow:hidden}
-@media(max-width:760px){.freelance-demo-dialog{width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:18px}.freelance-demo-header{gap:12px}.freelance-demo-header h2{font-size:18px}.freelance-demo-dialog video{height:min(62dvh,520px)}}
+.project-demo-dialog{width:min(680px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:24px;border:1px solid #445447;border-radius:12px;background:var(--surface);color:var(--text);box-shadow:0 20px 60px #0007}
+.project-demo-dialog::backdrop{background:rgba(5,10,7,.76)}
+.project-demo-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:16px}
+.project-demo-header h2{font-size:20px;letter-spacing:-.4px;margin-top:5px}
+.project-demo-close{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #445447;border-radius:6px;background:transparent;color:var(--text);font:500 13px 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap}
+.project-demo-close:hover{border-color:var(--accent);color:var(--accent)}
+.project-demo-dialog video{display:block;width:100%;height:auto;max-height:min(66dvh,560px);aspect-ratio:16 / 9;object-fit:contain;background:#080a08;border-radius:8px;margin-inline:auto}
+body:has(.freelance-demo-dialog[open]),body:has(.project-demo-dialog[open]){overflow:hidden}
+@media(max-width:760px){.freelance-demo-dialog,.project-demo-dialog{width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:18px}.freelance-demo-header,.project-demo-header{gap:12px}.freelance-demo-header h2,.project-demo-header h2{font-size:18px}.freelance-demo-dialog video{height:min(62dvh,520px)}.project-demo-dialog video{max-height:min(62dvh,520px)}}
 @media(hover:hover) and (pointer:fine){
   .project-card.project-split:hover,.project-card.project-split.scroll-reveal.is-visible:hover{transform:translateY(-2px);border-color:#c6d1c5;box-shadow:0 12px 28px rgba(35,49,43,.09)}
 }
