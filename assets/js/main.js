@@ -136,6 +136,18 @@ if (viewer && typeof viewer.showModal === 'function') {
   });
 }
 
+const internshipGallery = document.getElementById('internship-gallery-dialog');
+const internshipGalleryButton = document.querySelector('.internship-more-button');
+if (internshipGallery && internshipGalleryButton && typeof internshipGallery.showModal === 'function') {
+  internshipGalleryButton.addEventListener('click', () => internshipGallery.showModal());
+  internshipGallery.querySelector('.internship-gallery-close').addEventListener('click', () => internshipGallery.close());
+  internshipGallery.addEventListener('click', event => {
+    const bounds = internshipGallery.getBoundingClientRect();
+    if (event.target === internshipGallery && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) internshipGallery.close();
+  });
+  internshipGallery.addEventListener('close', () => internshipGalleryButton.focus());
+}
+
 
 const demoButton = document.querySelector('.demo-play');
 const demoVideo = document.getElementById('thesis-video');

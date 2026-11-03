@@ -33,7 +33,7 @@
           <a href="https://www.linkedin.com/in/muhamad-arif-6646a814b/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="simple-portrait"><img src="assets/img/profile-shirt-gray.png" alt="Muhamad Arif" fetchpriority="high"></div>
+      <div class="simple-portrait"><img src="assets/img/profile-shirt-gray.webp" alt="Muhamad Arif" width="991" height="1200" fetchpriority="high"></div>
     </section>
 
     <section class="section background-section" id="education" aria-labelledby="education-title">
@@ -169,7 +169,7 @@
         </aside>
       </article>
 
-      <article class="project-card project-split project-internship">
+      <article class="project-card project-split project-internship" id="internship-project">
         <div class="project-content">
           <p class="project-context"><span>Internship Project</span> <span class="project-year">2025–2026</span></p>
           <h3>Employee Attendance &amp; Operational Systems</h3>
@@ -182,15 +182,24 @@
           <div class="tags"><span>IoT</span><span>Fingerprint attendance</span><span>Web frontend</span><span>MySQL</span></div>
           <details><summary>Project context &amp; build details <span aria-hidden="true">+</span></summary><p class="case-detail">Built during my internship at Bukit Sunset Hill Villa &amp; Resto and Cafe Ngopi di Kebon Awi in Sukabumi, from October 2025 to January 2026.</p><ul><li>Integrated the attendance prototype with a central server for employee attendance recording and monitoring.</li><li>Contributed to web-based reservations and analytics dashboards.</li><li>Performed hardware-software integration, field testing, deployment, documentation, and device-server network troubleshooting.</li></ul></details>
         </div>
-        <aside class="project-visual internship-visual" aria-label="Employee attendance system workflow">
-          <p class="visual-kicker">ATTENDANCE SYSTEM</p>
-          <ol class="workflow-steps">
-            <li><span>01</span><div><strong>Fingerprint device</strong><small>Captures staff attendance</small></div></li>
-            <li><span>02</span><div><strong>Central server</strong><small>Receives attendance records</small></div></li>
-            <li><span>03</span><div><strong>Monitoring</strong><small>Attendance available to the team</small></div></li>
-          </ol>
-          <div class="visual-rule"></div>
-          <p class="visual-note">Alongside the attendance prototype, I contributed to reservations and operational analytics.</p>
+        <aside class="project-visual internship-visual" aria-label="Internship project preview">
+          <p class="visual-kicker">ATTENDANCE WEB SYSTEM</p>
+          <div class="project-gallery internship-gallery">
+            <figure class="gallery-featured gallery-dashboard">
+              <a class="gallery-link" href="assets/img/internship/screens/dashboard.webp" aria-label="Enlarge attendance dashboard preview">
+                <img src="assets/img/internship/screens/dashboard.webp" alt="Fingerprint attendance dashboard with employee details hidden" width="1280" height="592" loading="lazy">
+              </a>
+              <figcaption><strong>Attendance dashboard</strong><span>Daily summaries and attendance monitoring.</span></figcaption>
+            </figure>
+          </div>
+          <div class="internship-preview-strip" aria-label="Additional web screen previews">
+            <figure><a class="gallery-link" href="assets/img/internship/screens/employees.webp" aria-label="Enlarge employee management preview"><img src="assets/img/internship/screens/employees.webp" alt="Employee management screen with employee details hidden" width="1440" height="728" loading="lazy"></a><figcaption>Data Pegawai</figcaption></figure>
+            <figure><a class="gallery-link" href="assets/img/internship/screens/attendance-report.webp" aria-label="Enlarge attendance report preview"><img src="assets/img/internship/screens/attendance-report.webp" alt="Attendance report screen showing filters and summaries" width="1440" height="728" loading="lazy"></a><figcaption>Laporan Absensi</figcaption></figure>
+          </div>
+          <button class="internship-more-button" type="button" aria-label="Open the full internship project gallery" aria-haspopup="dialog" aria-controls="internship-gallery-dialog">
+            <span class="internship-more-label">View more</span><span class="internship-more-count">3 more screens · 2 photos</span><span class="internship-more-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="internship-flow" aria-label="Attendance system workflow"><span>Fingerprint</span><b aria-hidden="true">→</b><span>Central server</span><b aria-hidden="true">→</b><span>Attendance log</span></div>
         </aside>
       </article>
     </section>
@@ -201,6 +210,27 @@
     <section class="container contact" id="contact"><p class="eyebrow">CONTACT</p><h2>Let’s connect.</h2><p>Let’s talk about IoT, AI, and building useful systems together.</p><a class="contact-email" href="mailto:mhdarif.dev@gmail.com">mhdarif.dev@gmail.com <span aria-hidden="true">↗</span></a><div class="contact-links"><a href="tel:+6281314097048">+62 813 1409 7048</a><a href="https://www.linkedin.com/in/muhamad-arif-6646a814b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><span>Bekasi, Indonesia</span></div></section>
   </main>
   <footer class="container footer"><a class="logo header-name" href="#home">Muhamad Arif</a><p>© <span id="year">2026</span> Muhamad Arif</p><a href="#home">Back to top ↑</a></footer>
+  <dialog class="internship-gallery-dialog" id="internship-gallery-dialog" aria-labelledby="internship-gallery-title" aria-describedby="internship-gallery-description">
+    <header class="internship-gallery-header">
+      <div><p class="visual-kicker">INTERNSHIP PROJECT</p><h2 id="internship-gallery-title">Attendance system previews</h2><p id="internship-gallery-description">Six web screens and two internship photos.</p></div>
+      <button class="internship-gallery-close" type="button" aria-label="Close project gallery">Close <span aria-hidden="true">×</span></button>
+    </header>
+    <h3 class="internship-gallery-section-title">Web application <span>6 screens</span></h3>
+    <div class="internship-screens-grid">
+      <figure><a class="gallery-link" href="assets/img/internship/screens/dashboard.webp" aria-label="Enlarge attendance dashboard screen"><img src="assets/img/internship/screens/dashboard.webp" alt="Attendance dashboard with employee details hidden" width="1280" height="592" loading="lazy"></a><figcaption><strong>Dashboard</strong><span>Attendance overview.</span></figcaption></figure>
+      <figure><a class="gallery-link" href="assets/img/internship/screens/employees.webp" aria-label="Enlarge employee management screen"><img src="assets/img/internship/screens/employees.webp" alt="Employee management page with employee names and numbers hidden" width="1440" height="728" loading="lazy"></a><figcaption><strong>Data Pegawai</strong><span>Employee records, details hidden.</span></figcaption></figure>
+      <figure><a class="gallery-link" href="assets/img/internship/screens/attendance-report.webp" aria-label="Enlarge attendance report screen"><img src="assets/img/internship/screens/attendance-report.webp" alt="Attendance report page showing filters and summary metrics" width="1440" height="728" loading="lazy"></a><figcaption><strong>Laporan Absensi</strong><span>Report filters and summaries.</span></figcaption></figure>
+      <figure><a class="gallery-link" href="assets/img/internship/screens/login.webp" aria-label="Enlarge login screen"><img src="assets/img/internship/screens/login.webp" alt="Login page for the fingerprint attendance system" width="1440" height="726" loading="lazy"></a><figcaption><strong>Login Page</strong><span>Administrator sign-in.</span></figcaption></figure>
+      <figure><a class="gallery-link" href="assets/img/internship/screens/fingerprint-management.webp" aria-label="Enlarge fingerprint management screen"><img src="assets/img/internship/screens/fingerprint-management.webp" alt="Fingerprint management page with employee names, numbers, and IDs hidden" width="1440" height="729" loading="lazy"></a><figcaption><strong>Manajemen Fingerprint</strong><span>Enrollment status, employee details hidden.</span></figcaption></figure>
+      <figure><a class="gallery-link" href="assets/img/internship/screens/settings.webp" aria-label="Enlarge system settings screen"><img src="assets/img/internship/screens/settings.webp" alt="Attendance system settings page showing shift and tolerance configuration" width="1440" height="727" loading="lazy"></a><figcaption><strong>Pengaturan</strong><span>Shift and attendance settings.</span></figcaption></figure>
+    </div>
+    <h3 class="internship-gallery-section-title device-title">Internship documentation <span>2 photos</span></h3>
+    <div class="internship-screens-grid internship-device-grid">
+      <figure><a class="gallery-link" href="assets/img/internship/internship-site.webp" aria-label="Enlarge photo at the internship site"><img src="assets/img/internship/internship-site.webp" alt="Muhamad Arif and a colleague at Cafe Ngopi di Kebon Awi in Sukabumi" width="1200" height="1600" loading="lazy"></a><figcaption><strong>Internship site</strong><span>Cafe Ngopi di Kebon Awi, Sukabumi.</span></figcaption></figure>
+      <figure><a class="gallery-link" href="assets/img/internship/fingerprint-terminal.webp" aria-label="Enlarge fingerprint terminal photo"><img src="assets/img/internship/fingerprint-terminal.webp" alt="A hand using the fingerprint reader on the attendance terminal" width="1200" height="1600" loading="lazy"></a><figcaption><strong>Fingerprint check-in</strong><span>Reader feedback during attendance.</span></figcaption></figure>
+    </div>
+    <p class="internship-gallery-note">Employee names and numbers are hidden in the web interface previews.</p>
+  </dialog>
   <dialog class="freelance-demo-dialog" id="freelance-demo-dialog" aria-labelledby="freelance-demo-title">
     <div class="freelance-demo-header">
       <div><p class="visual-kicker">FREELANCE PROJECT · 56-SECOND DEMO</p><h2 id="freelance-demo-title">Fingerprint Attendance &amp; Door Access</h2></div>
