@@ -92,7 +92,8 @@
 
     <section class="section container" id="project">
       <div class="section-heading"><div><p class="eyebrow">PROJECTS</p><h2>Projects</h2></div><p>A closer look at my work in intelligent<br>monitoring and connected hardware.</p></div>
-      <article class="project-card featured">
+
+      <article class="project-card project-split project-thesis featured">
         <div class="project-content">
           <p class="project-context"><span>Undergraduate Thesis</span> <span class="project-year">2026</span></p>
           <h3>Real-Time PPE Violation Detection</h3>
@@ -102,7 +103,6 @@
             <div><h4>The challenge</h4><p>Detect PPE violations in a live camera stream and turn those detections into visible and audible alerts.</p></div>
             <div><h4>What I built</h4><p>A YOLOv11m detection pipeline with a Streamlit interface, RTSP camera input, and ESP32 alert integration.</p></div>
           </div>
-          <div class="project-flow" aria-label="System workflow"><span>Camera feed</span><span aria-hidden="true">→</span><span>PPE detection</span><span aria-hidden="true">→</span><span>Telegram + buzzer</span></div>
           <div class="tags"><span>Python</span><span>YOLOv11m</span><span>ONNX</span><span>Streamlit</span><span>ESP32</span></div>
           <details><summary>Results &amp; technical details <span aria-hidden="true">+</span></summary>
             <div class="project-demo">
@@ -114,35 +114,58 @@
               <noscript><p><a href="assets/videos/ppe-detection-demo.mp4">Watch the demonstration video</a></p></noscript>
             </div>
             <p class="case-detail">Developed as my undergraduate thesis. The model detects Helmet, Mask, Person, and Vest, and was trained using 4,410 images.</p>
-            <div class="metrics"><div><strong>93.0%</strong><small>Test precision</small></div><div><strong>85.9%</strong><small>Test recall</small></div><div><strong>91.8%</strong><small>Test mAP@0.5</small></div></div>
             <p class="metric-note">Test-set mAP@0.5:0.95: 65.8%. These metrics describe model evaluation, not field deployment performance.</p>
             <ul><li>Used ONNX inference to process IP camera input over RTSP in Streamlit.</li><li>Connected Telegram Bot image notifications and an ESP32-controlled buzzer to detected PPE violations.</li></ul>
           </details>
         </div>
+        <aside class="project-visual thesis-visual" aria-label="PPE model test-set metrics and processing workflow">
+          <p class="visual-kicker">MODEL EVALUATION · TEST SET</p>
+          <div class="metric-board">
+            <div class="metric-primary"><strong>91.8%</strong><span>mAP@0.5</span></div>
+            <div class="metric-secondary">
+              <div><strong>93.0%</strong><span>Precision</span></div>
+              <div><strong>85.9%</strong><span>Recall</span></div>
+            </div>
+          </div>
+          <div class="visual-rule"></div>
+          <p class="visual-kicker">PROCESS</p>
+          <ol class="workflow-steps">
+            <li><span>01</span><div><strong>Camera feed</strong><small>RTSP input</small></div></li>
+            <li><span>02</span><div><strong>PPE detection</strong><small>YOLOv11m model</small></div></li>
+            <li><span>03</span><div><strong>Alerts</strong><small>Telegram + ESP32 buzzer</small></div></li>
+          </ol>
+          <p class="visual-note">Evaluation results describe model testing, not field deployment performance.</p>
+        </aside>
       </article>
-      <article class="project-card secondary">
+
+      <article class="project-card project-split project-freelance secondary">
         <div class="project-content">
           <p class="project-context"><span>Freelance IoT Project</span> <span class="project-year">2026</span></p>
           <h3>Fingerprint Attendance &amp; Door Access</h3>
           <p class="project-origin">Freelance IoT project for attendance recording and classroom access control.</p>
-
           <p>One fingerprint interaction for classroom access and attendance recording, connecting a physical door mechanism with a database.</p>
           <div class="case-overview">
             <div><h4>The challenge</h4><p>Connect user verification, classroom door access, and attendance records within one system.</p></div>
             <div><h4>What I built</h4><p>An ESP32 system that verifies fingerprints, activates a relay-controlled solenoid lock, and records attendance in MySQL.</p></div>
           </div>
-          <div class="project-flow" aria-label="System workflow"><span>Scan fingerprint</span><span aria-hidden="true">→</span><span>Verify user</span><span aria-hidden="true">→</span><span>Unlock + record</span></div>
           <div class="tags"><span>ESP32</span><span>Fingerprint sensor</span><span>Relay &amp; solenoid</span><span>MySQL</span></div>
           <details><summary>Build details <span aria-hidden="true">+</span></summary>
-          <div class="project-gallery" aria-label="Freelance project documentation">
+            <p class="case-detail">Developed as a freelance IoT project. My contribution covered sensor and lock integration, attendance database integration, and hardware-software testing and troubleshooting.</p>
+            <ul><li>Successful fingerprint verification triggers automatic door unlocking.</li><li>Attendance records are integrated with a MySQL database.</li></ul>
+          </details>
+        </div>
+        <aside class="project-visual freelance-visual" aria-label="Freelance project photos and system workflow">
+          <p class="visual-kicker">PROJECT DOCUMENTATION</p>
+          <div class="project-gallery">
             <figure class="gallery-featured"><a class="gallery-link" href="assets/img/freelance/web%20absen%20kelas.jpeg" aria-label="Enlarge attendance dashboard"><img src="assets/img/freelance/web%20absen%20kelas.jpeg" alt="Class Attendance Dashboard showing attendance summaries and live access logs" width="1600" height="740" loading="lazy"></a><figcaption><strong>Web monitoring dashboard</strong><span>Attendance summaries and classroom access logs.</span></figcaption></figure>
             <figure><a class="gallery-link" href="assets/img/freelance/0eb5928e-61cd-438a-89ff-9790683ad993.JPG" aria-label="Enlarge hardware prototype"><img src="assets/img/freelance/0eb5928e-61cd-438a-89ff-9790683ad993.JPG" alt="Assembled attendance prototype with fingerprint sensor, keypad, LCD, controller, relay, and door lock" width="720" height="1280" loading="lazy"></a><figcaption><strong>IoT hardware prototype</strong><span>Connected components during assembly and testing.</span></figcaption></figure>
             <figure><a class="gallery-link" href="assets/img/freelance/8ae192ba-b3f2-417a-bf80-e1d2e3324686.JPG" aria-label="Enlarge wiring diagram"><img src="assets/img/freelance/8ae192ba-b3f2-417a-bf80-e1d2e3324686.JPG" alt="Wiring diagram for ESP32, fingerprint sensor, keypad, LCD, relay, and solenoid lock" width="709" height="1080" loading="lazy"></a><figcaption><strong>Wiring diagram</strong><span>Component connections and controller pin mapping.</span></figcaption></figure>
           </div>
-<p class="case-detail">Developed as a freelance IoT project. My contribution covered sensor and lock integration, attendance database integration, and hardware-software testing and troubleshooting.</p><ul><li>Successful fingerprint verification triggers automatic door unlocking.</li><li>Attendance records are integrated with a MySQL database.</li></ul></details>
-        </div>
+          <div class="freelance-flow" aria-label="System workflow"><span>Scan fingerprint</span><b aria-hidden="true">→</b><span>Verify user</span><b aria-hidden="true">→</b><span>Unlock + record</span></div>
+        </aside>
       </article>
-      <article class="project-card">
+
+      <article class="project-card project-split project-internship">
         <div class="project-content">
           <p class="project-context"><span>Internship Project</span> <span class="project-year">2025–2026</span></p>
           <h3>Employee Attendance &amp; Operational Systems</h3>
@@ -152,10 +175,19 @@
             <div><h4>The challenge</h4><p>Connect fingerprint attendance recording with central monitoring and support web-based operational workflows.</p></div>
             <div><h4>My contribution</h4><p>I developed and integrated an IoT fingerprint attendance prototype, and contributed to reservation features, analytics dashboards, frontend implementation, and MySQL integration.</p></div>
           </div>
-          <div class="project-flow" aria-label="Attendance prototype workflow"><span>Fingerprint device</span><span aria-hidden="true">→</span><span>Central server</span><span aria-hidden="true">→</span><span>Attendance monitoring</span></div>
           <div class="tags"><span>IoT</span><span>Fingerprint attendance</span><span>Web frontend</span><span>MySQL</span></div>
           <details><summary>Project context &amp; build details <span aria-hidden="true">+</span></summary><p class="case-detail">Built during my internship at Bukit Sunset Hill Villa &amp; Resto and Cafe Ngopi di Kebon Awi in Sukabumi, from October 2025 to January 2026.</p><ul><li>Integrated the attendance prototype with a central server for employee attendance recording and monitoring.</li><li>Contributed to web-based reservations and analytics dashboards.</li><li>Performed hardware-software integration, field testing, deployment, documentation, and device-server network troubleshooting.</li></ul></details>
         </div>
+        <aside class="project-visual internship-visual" aria-label="Employee attendance system workflow">
+          <p class="visual-kicker">ATTENDANCE SYSTEM</p>
+          <ol class="workflow-steps">
+            <li><span>01</span><div><strong>Fingerprint device</strong><small>Captures staff attendance</small></div></li>
+            <li><span>02</span><div><strong>Central server</strong><small>Receives attendance records</small></div></li>
+            <li><span>03</span><div><strong>Monitoring</strong><small>Attendance available to the team</small></div></li>
+          </ol>
+          <div class="visual-rule"></div>
+          <p class="visual-note">Alongside the attendance prototype, I contributed to reservations and operational analytics.</p>
+        </aside>
       </article>
     </section>
     <section class="section container about-grid" id="about">
